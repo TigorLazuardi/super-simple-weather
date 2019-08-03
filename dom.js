@@ -8,8 +8,8 @@ window.addEventListener('load', () => {
 
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(position => {
-            let longitude = position.coords.longitude;
-            let latitude = position.coords.latitude;
+            const longitude = position.coords.longitude;
+            const latitude = position.coords.latitude;
             const proxy = 'https://cors-anywhere.herokuapp.com/';
             const weather = `${proxy}https://api.darksky.net/forecast/4664bb7d3da4062df217a4b305846247/${latitude},${longitude}`
             fetch(weather).then(response => {
@@ -25,7 +25,7 @@ window.addEventListener('load', () => {
                 setIcons(icon, document.querySelector('.icon'))
 
                 //Change to Farenheit and Vice Versa
-                degreeSection.addEventListener('click', ()=> {
+                /* degreeSection.addEventListener('click', ()=> {
                     if (degreeSpan.textContent === 'C') {
                         degreeSpan.textContent = 'F';
                         temperatureDegree.textContent = temperature
@@ -33,7 +33,7 @@ window.addEventListener('load', () => {
                         degreeSpan.textContent = 'C';
                         temperatureDegree.textcontent = celcius
                     }
-                })
+                }) */
             });
         })
     } else {
